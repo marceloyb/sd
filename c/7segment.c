@@ -1,9 +1,9 @@
 #include <avr/io.h>
 #include <avr/portpins.h>
 #include <util/delay.h>
-#include "../7segment.h"
-#include "../bitop.h"
-#include "../button.h"
+#include "headers/7segment.h"
+#include "headers/bitop.h"
+#include "headers/button.h"
 
 
 /* 7 segment: 8 mid

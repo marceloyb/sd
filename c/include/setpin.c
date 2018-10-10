@@ -1,25 +1,12 @@
 #include "setpin.h"
 
-char dorb(uint8_t position){
-	uint8_t port;
-
-	if (position > 7){
-		port = 1;
-	}
-	
-	else if (position <= 7){
-		port = 0;
-	}
-	return port;
-}
-
 uint8_t finalpos(uint8_t position){
 	uint8_t finalpin;
 	finalpin = position % 8;
 	return finalpin;
 }
 
-uint8_t setmode(uint8_t mode, uint8_t position){
+void setpinmode(uint8_t mode, uint8_t position){
 	// input = clr
 	// output = set
 	uint8_t pin;
@@ -50,6 +37,37 @@ uint8_t setmode(uint8_t mode, uint8_t position){
 		}
 
 		// pullup
+	}
+
+}
+
+void setpinvalue(uint8_t value, uint8_t position){
+	// input = clr
+	// output = set
+	uint8_t pin;
+
+
+	pin = finalpos(position);
+
+	if (position >= 8){
+		// value
+		if (value == 0){
+			clr_bit(PORTB, pin);
+		}
+		// high
+		if (value == 1){
+			set_bit(PORTB, pin);
+		}
+	}
+	if (position < 8){
+		// low
+		if (value == 0){
+			clr_bit(PORTD, pin);
+		}
+		// high
+		if (value == 1){
+			set_bit(PORTD, pin);
+		}
 	}
 
 }

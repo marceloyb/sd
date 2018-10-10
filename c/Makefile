@@ -3,7 +3,7 @@ PROG = main
 
 # Defina uma variável DEPS com a lista das dependências .c (sem a extensão)
 # Exemplo: DEPS = dep1 dep2 dep3
-DEPS = include/setpin
+DEPS = include/setpin include/led
 
 # Porta de comunicação com o Arduino
 PORT = /dev/ttyACM0

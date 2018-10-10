@@ -2,6 +2,7 @@
 #include <avr/portpins.h>
 #include <util/delay.h>
 #include "include/setpin.h"
+#include "include/led.h"
 #define swt_bit(reg, pos) (reg ^= (1 << pos))	// mudança de estado
 #define clr_bit(reg, pos) (reg &= ~(1 << pos))	// limpar os bits de uma pos
 #define set_bit(reg, pos) (reg |= (1 << pos))	// setar bits 
@@ -19,12 +20,13 @@ int main(void){
 //        clr_bit(DDRB, PB1);
 //   		DDRB = 00000010; 
 //		PORTB = 00000010;
-		setmode(output, 9);
+		setpinmode(output, 9);
 //        set_bit(DDRD, PD3);
-		swt_bit(PORTB, 1);
-
-//        set_bit(PORTB, PB1);
-        
+    setpinvalue(high, 9);
+    
+    while(1){
+		  blink_led(9, 300);
+    }
 //		while (1) {
 		
          //   if(!isset_bit(PINB, PB1)){

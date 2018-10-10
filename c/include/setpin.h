@@ -9,21 +9,10 @@
 #define input 0
 #define output 1
 #define pullup 2
-// primeiro descobre se b ou d
-// depois qual a posiçao dentro de b ou d
 
-int dorb(int position){
-	int 
-}
+uint8_t finalpos(uint8_t position);
 
-int setmode(, mode){
-	// input = clr
-	// output = set
-	if (mode == "INPUT"){
-		clr_bit(
-	}
-
-}
+uint8_t setmode(uint8_t mode, uint8_t position);
 
 #endif
 
